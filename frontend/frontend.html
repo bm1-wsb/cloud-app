@@ -1,0 +1,10 @@
+@"
+<h1>Cloud App Frontend</h1>
+<p>Status: Polaczono</p>
+"@ | Out-File -FilePath frontend\index.html -Encoding utf8
+
+@"
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+"@ | Out-File -FilePath frontend\Dockerfile -Encoding utf8
