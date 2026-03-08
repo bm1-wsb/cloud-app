@@ -1,14 +1,31 @@
-# Etap 1: Budowanie (Build) - używamy Node.js, aby skompilować Reacta
-FROM node:20-alpine AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+version: "3.9"
  
-# Etap 2: Serwowanie (Production) - używamy lekkiego serweraNginx
-FROM nginx:alpine
-# Kopiujemy tylko efekt budowania (folder /dist) do folderu Nginx
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    networks:
+      - cloud-network
+ 
+  backend:
+    build: ./backend
+    ports:
+      - "8081:80"
+    networks:
+      - cloud-network
+ 
+  db:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: cloud-db
+    environment:
+      SA_PASSWORD: "StrongPassword123!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - cloud-network
+ 
+networks:
+  cloud-network:
+    driver: bridge
