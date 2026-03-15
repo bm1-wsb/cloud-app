@@ -3,7 +3,7 @@ import './App.css';
  
 function App() {
   return (
-<div lcassName="App">
+<div className="App">
       {/* To sprawi, że Dashboard pojawi się na stronie */}
 <Dashboard />
 </div>
