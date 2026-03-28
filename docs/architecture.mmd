@@ -1,0 +1,16 @@
+C4Context
+    title Diagram kontenerów (C4) - Room Booking System
+    Person(user, "Pracownik/Manager", "Rezerwuje sale konferencyjne")
+    Person(admin, "Administrator", "Zarządza salami i użytkownikami")
+    Enterprise_Boundary(c1, "Room Booking System") {
+        Container(web_app, "Frontend (React 19)", "React + TypeScript", "Interfejs użytkownika do rezerwacji sal")
+        Container(api, "Backend (API)", "Node.js Express", "Logika biznesowa, walidacja, REST API")
+        ContainerDb(db, "Baza danych", "PostgreSQL / Azure SQL", "Przechowuje sale, rezerwacje, użytkowników, historię")
+        Container(auth, "Autentykacja", "JWT / OAuth2", "Zarządzanie sesją użytkownika")
+    }
+    Rel(user, web_app, "Korzysta z", "HTTPS")
+    Rel(admin, web_app, "Zarządza systemem", "HTTPS")
+    Rel(web_app, auth, "Loguje się", "JSON/HTTPS")
+    Rel(web_app, api, "Wysyła zapytania", "REST/JSON/HTTPS")
+    Rel(api, auth, "Weryfikuje token", "JWT")
+    Rel(api, db, "Odczytuje/Zapisuje", "SQL / Port 5432/1433")
