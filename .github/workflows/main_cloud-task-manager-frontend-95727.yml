@@ -21,7 +21,7 @@ jobs:
           npm run build
         working-directory: ./frontend
         env:
-          VITE_API_URL: "Tu wstaw adres swojego backendu np. https://cloud-task-manager-api-h9fsfpd4gnaeaddz.germanywestcentral-01.azurewebsites.net/api"
+          VITE_API_URL: "https://cloud-task-manager-api-95727-gyfjcgfzhbb2emdd.germanywestcentral-01.azurewebsites.net/index.html"
 
       - name: Upload
         uses: actions/upload-artifact@v4
