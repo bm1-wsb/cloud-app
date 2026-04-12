@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj": {}
+    "C:\\users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj": {
+    "C:\\users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj",
+        "projectUniqueName": "C:\\users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj",
         "projectName": "CloudBackend",
-        "projectPath": "C:\\Users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj",
+        "projectPath": "C:\\users\\student-wroclaw\\cloud-app\\backend\\CloudBackend.csproj",
         "packagesPath": "C:\\Users\\admstud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\student-wroclaw\\cloud-app\\backend\\obj\\",
+        "outputPath": "C:\\users\\student-wroclaw\\cloud-app\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admstud\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -44,6 +44,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Azure.Extensions.AspNetCore.Configuration.Secrets": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.1, )"
